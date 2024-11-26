@@ -5,126 +5,132 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body {
-          margin: 0;
-          font-family: Arial, sans-serif;
-        }
-    
-        /* Sidebar */
-        .sidebar {
-          width: 70px;
-          background-color: #2cb567; /* Green color */
-          height: 100vh;
-          position: fixed;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          padding-top: 20px;
-        }
-        .sidebar img {
-          width: 50px;
-          margin-bottom: 20px;
-        }
-        .sidebar .icon {
-          margin: 15px 0;
-          font-size: 24px;
-          color: white;
-          cursor: pointer;
-        }
-        .sidebar .icon:hover {
-          opacity: 0.8;
-        }
-    
-        /* Header */
-        .header {
-          background-color: #f8f9fa;
-          padding: 10px 20px;
-          margin-left: 70px; /* Align with sidebar width */
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-        }
-        .header h1 {
-          margin: 0;
-          font-size: 18px;
-        }
-        .header .search-bar {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-        }
-        .header .search-bar input {
-          padding: 8px;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-          width: 200px;
-        }
-        .header .icons {
-          display: flex;
-          align-items: center;
-          gap: 20px;
-          font-size: 18px;
-        }
-    
-        /* Login Form */
-        .login-container {
-          margin-left: 70px; /* Align with sidebar */
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: calc(100vh - 50px); /* Adjust height excluding header */
-        }
-        .login-box {
-          text-align: center;
-          max-width: 350px;
-          width: 100%;
-          border: 1px solid #ddd;
-          border-radius: 10px;
-          padding: 20px;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .login-box img {
-          width: 60px;
-          margin-bottom: 20px;
-        }
-        .login-box input {
-          width: 100%;
-          padding: 10px;
-          margin: 10px 0;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-          font-size: 14px;
-        }
-        .login-box button {
-          width: 100%;
-          padding: 10px;
-          border: none;
-          background-color: #2cb567;
-          color: white;
-          border-radius: 5px;
-          font-size: 16px;
-          cursor: pointer;
-        }
-        .login-box button:hover {
-          background-color: #249a51;
-        }
-        .login-box a {
-          display: block;
-          margin-top: 10px;
-          font-size: 12px;
-          color: #007bff;
-          text-decoration: none;
-        }
-        .login-box a:hover {
-          text-decoration: underline;
-        }
-      </style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+  
+      /* Sidebar */
+      .sidebar {
+        width: 70px;
+        background-color: #2cb567; /* Green color */
+        height: 100vh;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+      }
+      .sidebar img {
+        width: 50px;
+        margin-bottom: 20px;
+      }
+      .sidebar .icon {
+        margin: 15px 0;
+        font-size: 24px;
+        color: white;
+        cursor: pointer;
+      }
+      .sidebar .icon:hover {
+        opacity: 0.8;
+      }
+  
+      /* Header */
+      .header {
+        background-color: #f8f9fa;
+        padding: 10px 20px;
+        margin-left: 70px; /* Align with sidebar width */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .header .search-bar {
+        flex: 1;
+      }
+      .header .search-bar input {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+      }
+      .header h1 {
+        flex: 2;
+        text-align: center;
+        margin: 0;
+        font-size: 18px;
+      }
+      .header .icons {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 20px;
+        font-size: 18px;
+      }
+  
+      /* Login Form */
+      .login-container {
+        margin-left: 70px; /* Align with sidebar */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 50px); /* Adjust height excluding header */
+      }
+      .login-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centers items horizontally */
+        justify-content: center; /* Centers items vertically */
+        text-align: center;
+        max-width: 350px;
+        width: 100%;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .login-box img {
+        width: 120px;
+        margin-bottom: 10px;
+      }
+      .login-box input {
+        width: 90%; /* Adjust width to ensure it's smaller and centered */
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+}
+      .login-box button {
+        width: 90%; /* Match the inputs' width for consistency */
+        padding: 10px;
+        border: none;
+        background-color: #2cb567;
+        color: white;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .login-box button:hover {
+        background-color: #249a51;
+      }
+      .login-box a {
+        display: block;
+        margin-top: 10px;
+        font-size: 12px;
+        color: #007bff;
+        text-decoration: none;
+      }
+      .login-box a:hover {
+        text-decoration: underline;
+      }
+    </style>
 </head>
 <body>
     <!-- Sidebar -->
   <div class="sidebar">
     <!-- Logo -->
-    <img src="logo-placeholder.png" alt="Logo">
+    <img src="image-removebg-preview (7).png" alt="Logo">
     <!-- Sidebar Icons -->
     <div class="icon">👤</div>
     <div class="icon">👨‍⚕️</div>
@@ -135,10 +141,13 @@
 
   <!-- Header -->
   <div class="header">
-    <h1>Hospital Information System</h1>
+    <!-- Search Bar -->
     <div class="search-bar">
       <input type="text" placeholder="Search here">
     </div>
+    <!-- Centered Title -->
+    <h1>Hospital Information System</h1>
+    <!-- Notification and Settings Icons -->
     <div class="icons">
       🔔 <!-- Notification Icon -->
       ⚙️ <!-- Settings Icon -->
@@ -148,7 +157,7 @@
   <!-- Login Form -->
   <div class="login-container">
     <div class="login-box">
-      <img src="logo-placeholder.png" alt="Hospital Logo">
+      <img src="image-removebg-preview (10).png" alt="Hospital Logo">
       <form>
         <input type="text" placeholder="Phone number" required>
         <input type="password" placeholder="Password" required>
@@ -157,5 +166,4 @@
       </form>
     </div>
   </div>
-</body>
 </html>
