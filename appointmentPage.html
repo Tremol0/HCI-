@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Appointments</title>
+    <style>
+        /* General Styling */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 70px;
+            background-color: #2cb567;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+        }
+
+        .sidebar img {
+            width: 50px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar .icon {
+            margin: 15px 0;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: white;
+            width: calc(100% - 70px);
+            position: fixed;
+            top: 0;
+            left: 70px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+
+        .header h1 {
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .header input {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Doctor List */
+        .doctor-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 100px 0 20px 70px;
+            padding: 20px;
+        }
+
+        .doctor {
+            display: flex;
+            align-items: center;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            padding: 10px;
+            cursor: pointer;
+            transition: border 0.3s;
+            width: 100%;
+        }
+
+        .doctor.selected {
+            border: 2px solid black;
+        }
+
+        .doctor img {
+            width: 80px;
+            height: 80px;
+            background-color: #ccc;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .doctor-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .doctor-info h3, .doctor-info p {
+            margin: 5px 0;
+        }
+
+        /* Divider Line */
+        .divider {
+            width: calc(100% - 70px);
+            height: 1px;
+            background-color: #ccc;
+            margin: 10px auto;
+        }
+
+        /* Appointment Slots Section */
+        .appointment-container {
+            margin-left: 15px;
+            padding: 20px;
+        }
+
+        .date {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            margin-left: 100px;
+        }
+
+        .slots {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px 1px;
+            justify-items: center;
+        }
+
+        .slot {
+            width: 100px;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid #28a745;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .slot.booked {
+            border-color: #dc3545;
+            color: #dc3545;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <img src="image-removebg-preview (7).png" alt="Logo">
+        <div class="icon">👤</div>
+        <div class="icon">👨‍⚕️</div>
+        <div class="icon">📅</div>
+        <div class="icon">💊</div>
+        <div class="icon">⏰</div>
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+        <input type="text" placeholder="Search here">
+        <h1>№2 Hospital</h1>
+        <div>🔔 ⚙️</div>
+    </div>
+
+    <!-- Doctor List -->
+    <div class="doctor-container">
+        <div class="doctor" onclick="selectDoctor(this)">
+            <img src="doctor-placeholder.png" alt="Doctor">
+            <div class="doctor-info">
+                <h3>Dr. Zholshybek Amanov</h3>
+                <p>Traumatologist</p>
+            </div>
+        </div>
+        <div class="doctor" onclick="selectDoctor(this)">
+            <img src="doctor-placeholder.png" alt="Doctor">
+            <div class="doctor-info">
+                <h3>Dr. Zholshybek Amanov</h3>
+                <p>Traumatologist</p>
+            </div>
+        </div>
+        <div class="doctor" onclick="selectDoctor(this)">
+            <img src="doctor-placeholder.png" alt="Doctor">
+            <div class="doctor-info">
+                <h3>Dr. Zholshybek Amanov</h3>
+                <p>Traumatologist</p>
+            </div>
+        </div>
+        <div class="doctor" onclick="selectDoctor(this)">
+            <img src="doctor-placeholder.png" alt="Doctor">
+            <div class="doctor-info">
+                <h3>Dr. Zholshybek Amanov</h3>
+                <p>Traumatologist</p>
+            </div>
+        </div>
+        <div class="doctor" onclick="selectDoctor(this)">
+            <img src="doctor-placeholder.png" alt="Doctor">
+            <div class="doctor-info">
+                <h3>Dr. Zholshybek Amanov</h3>
+                <p>Traumatologist</p>
+            </div>
+        </div>
+        <div class="doctor" onclick="selectDoctor(this)">
+            <img src="doctor-placeholder.png" alt="Doctor">
+            <div class="doctor-info">
+                <h3>Dr. Zholshybek Amanov</h3>
+                <p>Traumatologist</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider"></div>
+
+    <!-- Appointment Slots -->
+    <div class="appointment-container">
+        <div class="date">12 May</div>
+        <div class="slots">
+            <div class="slot booked">09:00</div>
+            <div class="slot booked">09:30</div>
+            <div class="slot">10:00</div>
+            <div class="slot booked">10:30</div>
+            <div class="slot">11:00</div>
+            <div class="slot">11:30</div>
+            <div class="slot">12:00</div>
+            <div class="slot">14:00</div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function selectDoctor(element) {
+            const doctors = document.querySelectorAll('.doctor');
+            doctors.forEach(doc => doc.classList.remove('selected'));
+            element.classList.add('selected');
+        }
+    </script>
+</body>
+</html>
